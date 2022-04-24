@@ -10,7 +10,7 @@ console.log("The mask");
 //i will assign a string (rock paper or scissors) to each num
 
 
-function compPlay(max) {
+function computerPlay(max) {
     let randomNumber = Math.floor(Math.random()*max);
     console.log(randomNumber); 
 
@@ -25,4 +25,4 @@ function compPlay(max) {
     }
 }
 
-compPlay(3)
+computerPlay(3)
