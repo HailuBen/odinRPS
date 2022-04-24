@@ -1,38 +1,44 @@
-console.log("ROCK PAPER SCISSORS!");
-
-// function computerPlay(max) {
-//     return Math.floor(Math.random() * max);
-// }
-// console.log(computerPlay(3))
+const SELECTIONS = ["rock","paper","scissors"];
 
 
-//both functions (above and below this line) will print a random number from 1 - 3
-//i will assign a string (rock paper or scissors) to each num
-
-
-function computerPlay(max) {
-    const randomNumber = Math.floor(Math.random()*max);
-    // console.log(randomNumber); 
-
-    if (randomNumber == 0) {
-        console.log("CPU: Rock");
-    }
-    else if (randomNumber == 1){
-        console.log("CPU: Paper");
-    }
-    else if (randomNumber == 2) {
-        console.log("CPU: Scissors");
-    }
+function game() {
+    playRound();
 }
 
-//testing a new way from stackoverflow
 
-function computerPlay2() {
-    let values = ["Rock", "Paper", "Scissors",],
-        valuesToUse = values[Math.floor(Math.random() * values.length)];
-        console.log("\n"+valuesToUse);
+function playRound() {
+    const playerSelection = playerChoice();
+    const computerSelection = computerChoice();
 }
-computerPlay2();
+
+
+function playerChoice () {
+    //player input
+    let input = prompt("Type Rock, Paper or Scissors.");
+    while(input==null){
+        input = prompt("Type Rock, Paper, or Scissors.");
+    }
+    input = input.toLowerCase();
+    
+    let check = validateInput(input)
+    while (check == false){
+        input = prompt("Type Rock, Paper, or Scissors. (spelling sensitive!)")
+    }
+    input = input.toLowerCase();
+    check = validateInput(input);
+}
+
+
+function computerChoice() {
+    return SELECTIONS[Math.floor(Math.random()*SELECTIONS.length)]
+} 
+
+function validateInput(SELECTIONS) {
+    return SELECTIONS.includes(SELECTIONS);
+}
+
+
+game();
 
 
 
@@ -40,17 +46,9 @@ computerPlay2();
 
 
 
-// function playRound(playerSelection, computerSelection) {
-//     computerPlay(3)
+// function computerPlay2() {
+//     let values = ["rock", "paper", "scissors"],
+//         valuesToUse = values[Math.floor(Math.random() * values.length)];
+//         // console.log("\n"+valuesToUse);
 // }
-
-// const playerSelection = "rock";
-// const computerSelection = computerPlay(3);
-// console.log(playRound(playerSelection, computerSelection));
-
-// function game() {    
-//     for (let i = 0; i < 5; i++) {
-//         playRound()
-//     }
-// }
-
+// computerPlay2();
