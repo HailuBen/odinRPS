@@ -6,24 +6,24 @@ console.log("ROCK PAPER SCISSORS!");
 // console.log(computerPlay(3))
 
 
-//both of these will print a random number from 1 - 3
+//both functions (above and below this line) will print a random number from 1 - 3
 //i will assign a string (rock paper or scissors) to each num
 
 
-// function computerPlay(max) {
-//     const randomNumber = Math.floor(Math.random()*max);
-//     // console.log(randomNumber); 
+function computerPlay(max) {
+    const randomNumber = Math.floor(Math.random()*max);
+    // console.log(randomNumber); 
 
-//     if (randomNumber == 0) {
-//         console.log("CPU: Rock");
-//     }
-//     else if (randomNumber == 1){
-//         console.log("CPU: Paper");
-//     }
-//     else if (randomNumber == 2) {
-//         console.log("CPU: Scissors");
-//     }
-// }
+    if (randomNumber == 0) {
+        console.log("CPU: Rock");
+    }
+    else if (randomNumber == 1){
+        console.log("CPU: Paper");
+    }
+    else if (randomNumber == 2) {
+        console.log("CPU: Scissors");
+    }
+}
 
 //testing a new way from stackoverflow
 
@@ -33,6 +33,8 @@ function computerPlay2() {
         console.log("\n"+valuesToUse);
 }
 computerPlay2();
+
+
 
 
 
