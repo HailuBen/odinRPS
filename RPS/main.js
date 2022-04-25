@@ -14,7 +14,7 @@ let rounds = 1;
 let userScore = 0;
 let cpuScore = 0;
 const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
-const comp = 'rock';
+// const comp = 'rock';
 
 console.log(" ")
 
@@ -76,7 +76,7 @@ function game(){
         console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
         playRounds();    
     } while (userScore<5 && (cpuScore<5));      //working as intended.
-    console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\nFINAL SCORE: \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
+    console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
 }
 game();
 
