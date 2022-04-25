@@ -1,0 +1,7 @@
+- created capitalizeFirst function to capitalize first letter of strings
+- created new playRounds function using if else if
+- added user, computer, and round counters to playRounds
+- created game function with do while loop
+- added scoreboard text after each round to game()
+- added final scoreboard to game()
+- added else if for incorrect inputs to playRound
