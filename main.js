@@ -23,55 +23,13 @@ function capitalizeFirst(string) {
 }
 
 function playRounds(){
-    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
-    console.log('CPU: '+capitalizeFirst(randComp));
-    let user = prompt('\nEnter rock, paper or scissors.');
-    console.log("\nYou chose: "+capitalizeFirst(user));
-    
-        if (user.toLowerCase() === randComp) {  
-            console.log("\nTie game.");
-            rounds++;
-        }
-        else if (user.toLowerCase() === 'rock' && randComp === 'scissors'){
-            console.log("You Win. \nRock beats Scissors");
-            rounds++;            
-            userScore++;
-            
-        }
-        else if (user.toLowerCase() === 'paper' && randComp === 'rock'){
-            console.log("You Win. \nPaper beats Rock");
-            rounds++;            
-            userScore++;
-            
-        }
-        else if (user.toLowerCase() === 'scissors' && randComp === 'paper'){
-            console.log("You Win. \nScissors beats Paper");
-            rounds++;          
-            userScore++;
-        }
-        else if (user.toLowerCase() === 'rock' && randComp === 'paper'){
-            console.log("You lose.\nPaper beats Rock.");
-            rounds++; 
-            cpuScore++;
-        }
-        else if (user.toLowerCase() === 'paper' && randComp === 'scissors'){
-            console.log("You lose.\nScissors beats Paper.");
-            rounds++;
-            cpuScore++;
-        }
-        else if (user.toLowerCase() === 'scissors' && randComp === 'rock'){
-            console.log("You lose.\nRock beats Scissors.");
-            rounds++;
-            cpuScore++;            
-        }
-        else if (OPTIONS.includes(user.toLowerCase()) === false){
-        console.log("Please enter either Rock, Paper or Scissors. (Case insensitive)");
-        }
+
 }
 
 document.getElementById("buttonR").addEventListener('click', playRounds);
-// document.getElementById("buttonP").addEventListener('click');
-// document.getElementById("buttonS").addEventListener('click');
+document.getElementById("buttonP").addEventListener('click', playRounds);
+document.getElementById("buttonS").addEventListener('click', playRounds);
+
 
 
 //Issue: 1 
