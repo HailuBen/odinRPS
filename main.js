@@ -69,9 +69,9 @@ function playRounds(){
         }
 }
 
-button.addEventListener('click',playRounds);
-// const buttonPaper
-// const buttonScissors
+document.getElementById("buttonR").addEventListener('click', playRounds);
+// document.getElementById("buttonP").addEventListener('click');
+// document.getElementById("buttonS").addEventListener('click');
 
 
 //Issue: 1 
