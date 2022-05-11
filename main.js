@@ -68,15 +68,27 @@ function playRounds(){
         console.log("Please enter either Rock, Paper or Scissors. (Case insensitive)");
         }
 }
+
+button.addEventListener('click',playRounds);
+// const buttonPaper
+// const buttonScissors
+
+
 //Issue: 1 
 //Code works with any of the options RPS, but when the user input is capitalized, it outputs "Please enter valid response"
 //Issue: 1 = Fixed
 function game(){
-    do {
+
         console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
         playRounds();    
-    } while (userScore<5 && (cpuScore<5));      //working as intended.
-    console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
+    
+
+    // do {
+    //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+    //     playRounds();    
+    // } while (userScore<5 && (cpuScore<5));      //working as intended.
+    // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
+    
 }
 game();
 
