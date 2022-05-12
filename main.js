@@ -13,6 +13,8 @@ console.log("SlimeMachine\nFirst to five wins. \nBEGIN!");
 let rounds = 1;
 let userScore = 0;
 let cpuScore = 0;
+let clicked = false
+
 const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
 // const comp = 'rock';
 
@@ -23,12 +25,22 @@ function capitalizeFirst(string) {
 }
 
 function playRounds(){
+    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
+    console.log('CPU: '+capitalizeFirst(randComp));
+    // let user = rock || paper|| scissors;
 
+    }
+
+document.querySelector('button').addEventListener("click", function() {
+    clicked = true
+    });
+
+if (clicked = true) {
+    clickedRock = document.getElementById("buttonR").addEventListener('click', playRounds);
+    clickedPaper = document.getElementById("buttonP").addEventListener('click', playRounds);
+    clickedScissors = document.getElementById("buttonS").addEventListener('click', playRounds);
+    game();
 }
-
-document.getElementById("buttonR").addEventListener('click', playRounds);
-document.getElementById("buttonP").addEventListener('click', playRounds);
-document.getElementById("buttonS").addEventListener('click', playRounds);
 
 
 
@@ -38,8 +50,6 @@ document.getElementById("buttonS").addEventListener('click', playRounds);
 function game(){
 
         console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-        playRounds();    
-    
 
     // do {
     //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
@@ -48,7 +58,7 @@ function game(){
     // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
     
 }
-game();
+
 
 //Issue: 2 
 //Logical issue: Doesn't really make sense to subtract scores when a player loses a round. Points should stay the same. 
