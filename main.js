@@ -16,8 +16,7 @@ let cpuScore = 0;
 
 const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
 // const comp = 'rock';
-let userClicked;
-
+let userSelection;
 console.log(" ")
 
 function capitalizeFirst(string) {
@@ -25,49 +24,79 @@ function capitalizeFirst(string) {
 }
 
 function playRounds(){
-    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
-    console.log('CPU: '+capitalizeFirst(randComp));
     let rock = OPTIONS[0];
     let paper = OPTIONS[1];
     let scissors = OPTIONS[2];
+    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
+    console.log('CPU: '+capitalizeFirst(randComp));
+    let winMsg = 'You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randComp);
+    let loseMsg ='You lose. '+capitalizeFirst(randComp)+' beats '+capitalizeFirst(userSelection);
 
-    if (clickedRock=true) {
-        userClicked = rock;
-        if (randComp === rock) {
-            console.log("\nTie game.");
-            rounds++;
-        } 
-        else if (randComp === paper) {
-            console.log("You lose.\nPaper beats Rock.");
-            rounds++; 
-            cpuScore++;            
-        }  
-        else if (randComp === scissors){
-            console.log("You Win. \nRock beats Scissors");
-            rounds++;            
-            userScore++;            
-        }
-        }
-
-
+    if (randComp===userSelection) {
+        console.log("\nTie game.");
+        rounds++; 
     }
 
-    let clickedRock = false;
-    let clickedPaper = false;
-    let clickedScissors = false;
-
-    if (document.getElementById("buttonR").addEventListener('click',playRounds)) {
-        clickedRock= true;
+    else if(userSelection===OPTIONS[0] && randComp===paper) {
+        // console.log("You lose.\nPaper beats Rock.");
+        console.log(loseMsg);
+        rounds++; 
+        cpuScore++;
     }
-    else if (document.getElementById("buttonP").addEventListener('click',playRounds)) {
-        clickedPaper= true;
-    }
-    else if (document.getElementById("buttonS").addEventListener('click',playRounds)) {
-        clickedScissors= true;
+    else if(userSelection===OPTIONS[0] && randComp===scissors) {
+        // console.log("You Win. \nRock beats Scissors");
+        console.log(winMsg);
+        rounds++;            
+        userScore++;
     }
 
-    game();
+    else if(userSelection===OPTIONS[1] && randComp===rock) {
+        // console.log("You Win. \nPaper beats Rock");
+        console.log(winMsg);
+        rounds++;            
+        userScore++;
+    }
+    else if(userSelection===OPTIONS[1] && randComp===scissors) {
+        // console.log("You lose.\nScissors beats Paper.");
+        console.log(loseMsg);
+        rounds++;
+        cpuScore++;
+    }
 
+    else if(userSelection===OPTIONS[2] && randComp===rock){
+        // console.log("You lose.\nRock beats Scissors.");
+        console.log(loseMsg);
+        rounds++;
+        cpuScore++;   
+    }
+    else if(userSelection===OPTIONS[2] && randComp===paper){
+        // console.log("You Win. \nScissors beats Paper");
+        console.log(winMsg);
+        rounds++;          
+        userScore++;
+    }
+}
+
+function clickCheck() {
+    if (document.getElementById("buttonR").addEventListener('click', function() {
+        userSelection=OPTIONS[0];
+        playRounds();
+    })) {
+    }
+    else if (document.getElementById("buttonP").addEventListener('click', function() {
+        userSelection=OPTIONS[1];
+        playRounds();
+    })) {
+    }
+    else if (document.getElementById("buttonS").addEventListener('click', function() {
+        userSelection=OPTIONS[2];
+        playRounds();
+    }))  {
+    }
+}
+
+game();
+clickCheck();
 
 
 
