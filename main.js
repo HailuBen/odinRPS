@@ -30,19 +30,27 @@ function playRounds(){
     let rock = OPTIONS[0];
     let paper = OPTIONS[1];
     let scissors = OPTIONS[2];
-    
+
+    if (clickedRock=true)
+        userClicked = rock
     }
+    let clickedRock = false;
+    let clickedPaper = false;
+    let clickedScissors = false;
 
-document.querySelector('button').addEventListener("click", function() {
-    clicked = true
-    });
+    document.getElementById("buttonR").addEventListener('click', function() {
+        clickedRock= true;
+    },playRounds);
+    document.getElementById("buttonP").addEventListener('click', function(){
+        clickedPaper= true;
+    },playRounds);
+    document.getElementById("buttonS").addEventListener('click', function(){
+        clickedScissors=true;
+    },playRounds);
 
-if (clicked = true) {
-    clickedRock = document.getElementById("buttonR").addEventListener('click', playRounds);
-    clickedPaper = document.getElementById("buttonP").addEventListener('click', playRounds);
-    clickedScissors = document.getElementById("buttonS").addEventListener('click', playRounds);
+    
     game();
-}
+
 
 
 
