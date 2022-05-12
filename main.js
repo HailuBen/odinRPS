@@ -13,7 +13,7 @@ console.log("SlimeMachine\nFirst to five wins. \nBEGIN!");
 let rounds = 1;
 let userScore = 0;
 let cpuScore = 0;
-let clicked = false
+let userClicked;
 
 const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
 // const comp = 'rock';
