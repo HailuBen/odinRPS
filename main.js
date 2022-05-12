@@ -13,10 +13,10 @@ console.log("SlimeMachine\nFirst to five wins. \nBEGIN!");
 let rounds = 1;
 let userScore = 0;
 let cpuScore = 0;
-let userClicked;
 
 const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
 // const comp = 'rock';
+let userClicked;
 
 console.log(" ")
 
@@ -27,8 +27,10 @@ function capitalizeFirst(string) {
 function playRounds(){
     let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
     console.log('CPU: '+capitalizeFirst(randComp));
-    // let user = rock || paper|| scissors;
-
+    let rock = OPTIONS[0];
+    let paper = OPTIONS[1];
+    let scissors = OPTIONS[2];
+    
     }
 
 document.querySelector('button').addEventListener("click", function() {
