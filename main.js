@@ -56,16 +56,15 @@ function playRounds(){
     let clickedPaper = false;
     let clickedScissors = false;
 
-    document.getElementById("buttonR").addEventListener('click', function() {
+    if (document.getElementById("buttonR").addEventListener('click',playRounds)) {
         clickedRock= true;
-    },playRounds);
-    document.getElementById("buttonP").addEventListener('click', function(){
+    }
+    else if (document.getElementById("buttonP").addEventListener('click',playRounds)) {
         clickedPaper= true;
-    },playRounds);
-    document.getElementById("buttonS").addEventListener('click', function(){
-        clickedScissors=true;
-    },playRounds);
-
+    }
+    else if (document.getElementById("buttonS").addEventListener('click',playRounds)) {
+        clickedScissors= true;
+    }
 
     game();
 
