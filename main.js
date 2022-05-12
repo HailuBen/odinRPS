@@ -31,9 +31,27 @@ function playRounds(){
     let paper = OPTIONS[1];
     let scissors = OPTIONS[2];
 
-    if (clickedRock=true)
-        userClicked = rock
+    if (clickedRock=true) {
+        userClicked = rock;
+        if (randComp === rock) {
+            console.log("\nTie game.");
+            rounds++;
+        } 
+        else if (randComp === paper) {
+            console.log("You lose.\nPaper beats Rock.");
+            rounds++; 
+            cpuScore++;            
+        }  
+        else if (randComp === scissors){
+            console.log("You Win. \nRock beats Scissors");
+            rounds++;            
+            userScore++;            
+        }
+        }
+
+
     }
+
     let clickedRock = false;
     let clickedPaper = false;
     let clickedScissors = false;
@@ -48,7 +66,7 @@ function playRounds(){
         clickedScissors=true;
     },playRounds);
 
-    
+
     game();
 
 
