@@ -1,4 +1,4 @@
-console.log("SlimeMachine\nFirst to five wins. \nBEGIN!");
+console.log("SlimeMachine\nBest of 5. \nBEGIN!");
 //Problem: Create a Rock Paper Scisssors game where you play against a CPU
 //Divide: 1
 //Simple if statement + an array. Capitalize function for visual clarity.
@@ -18,6 +18,7 @@ const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
 // const comp = 'rock';
 let userSelection;
 console.log(" ")
+console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
 
 function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -80,41 +81,46 @@ function playRounds(){
 function clickCheck() {
     if (document.getElementById("buttonR").addEventListener('click', function() {
         userSelection=OPTIONS[0];
-        playRounds();
+        roundCheck();
     })) {
     }
     else if (document.getElementById("buttonP").addEventListener('click', function() {
         userSelection=OPTIONS[1];
-        playRounds();
+        roundCheck();
     })) {
     }
     else if (document.getElementById("buttonS").addEventListener('click', function() {
         userSelection=OPTIONS[2];
-        playRounds();
+        roundCheck();
     }))  {
     }
 }
 
-game();
 clickCheck();
 
+function game(){
+    console.log("RESULTS:\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
+    // do {
+    //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+    //     playRounds();    
+    // } while (userScore<5 && (cpuScore<5));      //working as intended.
+    // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result 
+}
+
+function roundCheck(){
+    if (rounds<5){
+        playRounds();
+        console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+    }
+    else if (rounds=5){
+        game();
+    }
+}
 
 
 //Issue: 1 
 //Code works with any of the options RPS, but when the user input is capitalized, it outputs "Please enter valid response"
 //Issue: 1 = Fixed
-function game(){
-
-        console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-
-    // do {
-    //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-    //     playRounds();    
-    // } while (userScore<5 && (cpuScore<5));      //working as intended.
-    // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
-    
-}
-
 
 //Issue: 2 
 //Logical issue: Doesn't really make sense to subtract scores when a player loses a round. Points should stay the same. 
