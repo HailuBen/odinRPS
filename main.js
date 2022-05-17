@@ -23,6 +23,7 @@ function setUpEvents(){
     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
     let roundsText = () => document.getElementById("rounds-container").innerHTML="Round: "+(rounds)+"<br>Your Score: "+userScore+" |  Computer Score: "+cpuScore
     let finalScoreText = () => document.getElementById("final-score").innerHTML="<br>-FINAL SCORE- <br>USER: "+userScore+"  | CPU: "+cpuScore
+    roundsText();
 
     function capitalizeFirst(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
