@@ -10,112 +10,122 @@
 //(After testing previous) Implement max score (5) and number of rounds   
 //Divide: 4
 //Place inside functions
-let rounds = 1;
-let userScore = 0;
-let cpuScore = 0;
+function setUpEvents(){
+        
+    let rounds = 1;
+    let userScore = 0;
+    let cpuScore = 0;
 
-const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
-// const comp = 'rock';
-let userSelection;
-console.log(" ")
-console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+    const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
+    // const comp = 'rock';
+    let userSelection;
+    console.log(" ")
+    console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+    let roundsText = () => document.getElementById("rounds-container").innerHTML="Round: "+(rounds)+"<br>Your Score: "+userScore+" |  Computer Score: "+cpuScore
+    let finalScoreText = () => document.getElementById("final-score").innerHTML="<br>-FINAL SCORE- <br>USER: "+userScore+"  | CPU: "+cpuScore
 
-function capitalizeFirst(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    function capitalizeFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function playRounds(){
+        let rock = OPTIONS[0];
+        let paper = OPTIONS[1];
+        let scissors = OPTIONS[2];
+        let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
+        // console.log('CPU: '+capitalizeFirst(randComp));
+        let winMsg = 'You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randComp);
+        let loseMsg ='You lose. '+capitalizeFirst(randComp)+' beats '+capitalizeFirst(userSelection);
+
+        if (randComp===userSelection) {
+            console.log("\nTie game.");
+            rounds++; 
+        }
+
+        else if(userSelection===OPTIONS[0] && randComp===paper) {
+            // console.log("You lose.\nPaper beats Rock.");
+            console.log(loseMsg);
+            rounds++; 
+            cpuScore++;
+        }
+        else if(userSelection===OPTIONS[0] && randComp===scissors) {
+            // console.log("You Win. \nRock beats Scissors");
+            console.log(winMsg);
+            rounds++;            
+            userScore++;
+        }
+
+        else if(userSelection===OPTIONS[1] && randComp===rock) {
+            // console.log("You Win. \nPaper beats Rock");
+            console.log(winMsg);
+            rounds++;            
+            userScore++;
+        }
+        else if(userSelection===OPTIONS[1] && randComp===scissors) {
+            // console.log("You lose.\nScissors beats Paper.");
+            console.log(loseMsg);
+            rounds++;
+            cpuScore++;
+        }
+
+        else if(userSelection===OPTIONS[2] && randComp===rock){
+            // console.log("You lose.\nRock beats Scissors.");
+            console.log(loseMsg);
+            rounds++;
+            cpuScore++;   
+        }
+        else if(userSelection===OPTIONS[2] && randComp===paper){
+            // console.log("You Win. \nScissors beats Paper");
+            console.log(winMsg);
+            rounds++;          
+            userScore++;
+        }
+    }
+
+    function clickCheck() {
+        if (document.getElementById("buttonR").addEventListener('click', function() {
+            userSelection=OPTIONS[0];
+            roundCheck();
+        })) {
+        }
+        else if (document.getElementById("buttonP").addEventListener('click', function() {
+            userSelection=OPTIONS[1];
+            roundCheck();
+        })) {
+        }
+        else if (document.getElementById("buttonS").addEventListener('click', function() {
+            userSelection=OPTIONS[2];
+            roundCheck();
+        }))  {
+        }
+    }
+
+    clickCheck();
+
+    function game(){
+        finalScoreText();
+        console.log("\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
+        // do {
+        //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+        //     playRounds();    
+        // } while (userScore<5 && (cpuScore<5));      //working as intended.
+        // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result 
+    }
+
+    function roundCheck(){
+        if (rounds<5){
+            playRounds();
+            console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
+            roundsText();
+        }
+        else if (rounds=5){
+            game();
+        }
+    }
 }
-
-function playRounds(){
-    let rock = OPTIONS[0];
-    let paper = OPTIONS[1];
-    let scissors = OPTIONS[2];
-    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
-    // console.log('CPU: '+capitalizeFirst(randComp));
-    let winMsg = 'You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randComp);
-    let loseMsg ='You lose. '+capitalizeFirst(randComp)+' beats '+capitalizeFirst(userSelection);
-
-    if (randComp===userSelection) {
-        console.log("\nTie game.");
-        rounds++; 
-    }
-
-    else if(userSelection===OPTIONS[0] && randComp===paper) {
-        // console.log("You lose.\nPaper beats Rock.");
-        console.log(loseMsg);
-        rounds++; 
-        cpuScore++;
-    }
-    else if(userSelection===OPTIONS[0] && randComp===scissors) {
-        // console.log("You Win. \nRock beats Scissors");
-        console.log(winMsg);
-        rounds++;            
-        userScore++;
-    }
-
-    else if(userSelection===OPTIONS[1] && randComp===rock) {
-        // console.log("You Win. \nPaper beats Rock");
-        console.log(winMsg);
-        rounds++;            
-        userScore++;
-    }
-    else if(userSelection===OPTIONS[1] && randComp===scissors) {
-        // console.log("You lose.\nScissors beats Paper.");
-        console.log(loseMsg);
-        rounds++;
-        cpuScore++;
-    }
-
-    else if(userSelection===OPTIONS[2] && randComp===rock){
-        // console.log("You lose.\nRock beats Scissors.");
-        console.log(loseMsg);
-        rounds++;
-        cpuScore++;   
-    }
-    else if(userSelection===OPTIONS[2] && randComp===paper){
-        // console.log("You Win. \nScissors beats Paper");
-        console.log(winMsg);
-        rounds++;          
-        userScore++;
-    }
-}
-
-function clickCheck() {
-    if (document.getElementById("buttonR").addEventListener('click', function() {
-        userSelection=OPTIONS[0];
-        roundCheck();
-    })) {
-    }
-    else if (document.getElementById("buttonP").addEventListener('click', function() {
-        userSelection=OPTIONS[1];
-        roundCheck();
-    })) {
-    }
-    else if (document.getElementById("buttonS").addEventListener('click', function() {
-        userSelection=OPTIONS[2];
-        roundCheck();
-    }))  {
-    }
-}
-
-clickCheck();
-
-function game(){
-    console.log("\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
-    // do {
-    //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-    //     playRounds();    
-    // } while (userScore<5 && (cpuScore<5));      //working as intended.
-    // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result 
-}
-
-function roundCheck(){
-    if (rounds<5){
-        playRounds();
-        console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-    }
-    else if (rounds=5){
-        game();
-    }
-}
+window.onload = function(){
+    setUpEvents();
+};
 
 
 //Issue: 1 
