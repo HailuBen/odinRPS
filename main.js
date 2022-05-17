@@ -1,4 +1,4 @@
-console.log("SlimeMachine\nBest of 5. \nBEGIN!");
+// console.log("SlimeMachine\nBest of 5. \nBEGIN!");
 //Problem: Create a Rock Paper Scisssors game where you play against a CPU
 //Divide: 1
 //Simple if statement + an array. Capitalize function for visual clarity.
@@ -29,7 +29,7 @@ function playRounds(){
     let paper = OPTIONS[1];
     let scissors = OPTIONS[2];
     let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
-    console.log('CPU: '+capitalizeFirst(randComp));
+    // console.log('CPU: '+capitalizeFirst(randComp));
     let winMsg = 'You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randComp);
     let loseMsg ='You lose. '+capitalizeFirst(randComp)+' beats '+capitalizeFirst(userSelection);
 
