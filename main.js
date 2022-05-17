@@ -99,7 +99,7 @@ function clickCheck() {
 clickCheck();
 
 function game(){
-    console.log("RESULTS:\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
+    console.log("\nRESULTS:\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
     // do {
     //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
     //     playRounds();    
