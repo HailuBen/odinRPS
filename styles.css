@@ -1,0 +1,218 @@
+* {
+    margin: 0%;
+}
+
+body {
+    padding: 0%;
+    background-color: rgb(169, 169, 169);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    padding-left: 0%;
+}
+
+.intro-div {
+    text-align: center;
+    padding: 0%;
+    padding-top: 6px;
+}
+
+.selections {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.selection {
+    background: rgb(199, 199, 199);
+    border: 2px solid rgb(169, 169, 169);
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+button:nth-child(1){
+    background-image: url('https://emoji-uc.akamaized.net/orig/3c/7890d4fc4e02ab5aeee4ba623fa563.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 150px;
+}
+button:nth-child(2){
+    background-image: url("https://emoji-uc.akamaized.net/orig/3d/c0bfc28ef2db2eebf66879a2dc37ea.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 150px;
+}
+button:nth-child(3){
+    background-image: url('https://emoji-uc.akamaized.net/orig/35/a3401a15f085c6ac84b0b9584a88eb.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 150px;
+}
+
+button {
+    font-weight: bold;
+    transition: 100ms;
+    padding: 10px;
+}
+button:hover {
+    transform: scale(1.2);
+}
+
+img {
+    flex-direction: column-reverse;
+    width: 50px;
+}
+
+.rounds-container {
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: monospace, 'Courier New', Courier;
+
+    margin-top: 1rem;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: repeat(1, 1);
+    justify-items: center;
+    align-items: center;
+}
+
+.new-container {
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: monospace, 'Courier New', Courier;
+
+    margin-top: 1rem;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: repeat(1, 1);
+    justify-items: center;
+    align-items: center;
+}
+
+p {
+    font-size: 20px;
+}
+
+div {
+    padding: 10px;
+    margin: 4px;
+}
+
+#end-game {
+    display: none;
+}
+
+#play-again {
+    display: none;
+}
+
+.play-again-container {
+    padding: 1.5%;
+    gap: 16px;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: repeat(1, 1);
+    justify-items: center;
+    align-items: center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    transition: 150ms;
+    outline: none;
+    cursor: pointer;
+    margin: 4px;
+}
+a:hover {
+    transform: scale(1.2);   
+}
+
+/* nothanks page  */
+.a-stop {
+    transform: none;
+}
+
+#background {
+    background-image: url("img/YOUdotpng.png");
+
+}   
+.nothanks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 4%;
+    margin-left: 2%;
+    font-weight: bold;
+}
+.user-img {
+    position: relative;
+    padding: 5%;
+    transition: transform .5s ease-in-out;
+    width: 200px;
+    height: auto;
+    margin-right: 80px;
+    border: 2px solid rgb(253, 253, 253);
+    transition-property:all;
+}
+.user-img:hover {
+    transform: rotate(540deg);
+    border: 6px solid rgb(155, 0, 54);
+    border-radius: 2%;
+    transition-delay: 1s;
+}
+.click-me {
+    text-decoration: none;
+    transition: 150ms;
+    padding: 3%;
+    transition: transform .2s ease-in-out;
+    width: 100px;
+    height: 100px;
+}
+.click-me:hover {
+    transform: rotate(360deg);
+}
+
+h5 {
+    display: inline-block;
+    font-size: 14px;
+    color: black;
+    /* transition-duration: 1s; */
+    transition-delay: .4s;
+}
+
+  .fade-in-bg {
+    display: flex;
+    opacity: 0%;
+    background: rgba(50, 60, 95, 0.3);
+    transition-property:all;
+    transition-duration: 1s;
+  }
+  .fade-in-bg:hover {
+    opacity:100%;
+    transition:opacity 4s ease-in-out;
+    transition-delay: 0.2s;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+  }
+
+  div h5 {
+    padding: 2%;
+  }
+  .fade-in-bg img {
+    width: 500px;
+    height: auto;
+  }
+
+/* nothanks page */
