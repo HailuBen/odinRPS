@@ -1,94 +1,125 @@
-console.log("SlimeMachine\nFirst to five wins. \nBEGIN!");
-//Problem: Create a Rock Paper Scisssors game where you play against a CPU
-//Divide: 1
-//Simple if statement + an array. Capitalize function for visual clarity.
-//Divide: 2 
-//Change user and comp into a prompt for user input, and a random string generator respectively. 
-//Divide: 2.5
-//Make sure the equal signs are === because you are comparing the randComp to user.toLowerCase(). (Make sure all the syntax is gucci)
-//Divide: 3
-//(After testing previous) Implement max score (5) and number of rounds   
-//Divide: 4
-//Place inside functions
-let rounds = 1;
-let userScore = 0;
-let cpuScore = 0;
-const OPTIONS = ['rock','paper','scissors'];    // 0 1 2 (3)
-// const comp = 'rock';
+function setUpEvents(){
 
-console.log(" ")
+    let rounds = 1;
+    let userScore = 0;
+    let cpuScore = 0;
+    let randomNumComputer;
+    let userChoice;
+    let computerChoice;
 
-function capitalizeFirst(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+    const computerChoiceDisplay = document.getElementById('computer-choice');
+    const userChoiceDisplay = document.getElementById('user-choice');
+    const resultDisplay = document.getElementById('result');
+    const possibleChoices = document.querySelectorAll('button');
+    const endGameDisplay = document.getElementById('end-game');
+    const userScoreDisplay = document.getElementById('user-score');
+    const computerScoreDisplay = document.getElementById('computer-score');
+    const roundDisplay = document.getElementById('round');
+    const playAgainDisplay = document.getElementById('play-again');
 
-function playRounds(){
-    let randComp = OPTIONS[Math.floor(Math.random()*OPTIONS.length)];
-    console.log('CPU: '+capitalizeFirst(randComp));
-    let user = prompt('\nEnter rock, paper or scissors.');
-    console.log("\nYou chose: "+capitalizeFirst(user));
+    const choices = ['Rock', 'Paper', 'Scissors'];
     
-        if (user.toLowerCase() === randComp) {  
-            console.log("\nTie game.");
-            rounds++;
-        }
-        else if (user.toLowerCase() === 'rock' && randComp === 'scissors'){
-            console.log("You Win. \nRock beats Scissors");
-            rounds++;            
-            userScore++;
-            
-        }
-        else if (user.toLowerCase() === 'paper' && randComp === 'rock'){
-            console.log("You Win. \nPaper beats Rock");
-            rounds++;            
-            userScore++;
-            
-        }
-        else if (user.toLowerCase() === 'scissors' && randComp === 'paper'){
-            console.log("You Win. \nScissors beats Paper");
-            rounds++;          
-            userScore++;
-        }
-        else if (user.toLowerCase() === 'rock' && randComp === 'paper'){
-            console.log("You lose.\nPaper beats Rock.");
-            rounds++; 
-            cpuScore++;
-        }
-        else if (user.toLowerCase() === 'paper' && randComp === 'scissors'){
-            console.log("You lose.\nScissors beats Paper.");
-            rounds++;
-            cpuScore++;
-        }
-        else if (user.toLowerCase() === 'scissors' && randComp === 'rock'){
-            console.log("You lose.\nRock beats Scissors.");
-            rounds++;
-            cpuScore++;            
-        }
-        else if (OPTIONS.includes(user.toLowerCase()) === false){
-        console.log("Please enter either Rock, Paper or Scissors. (Case insensitive)");
-        }
-}
-//Issue: 1 
-//Code works with any of the options RPS, but when the user input is capitalized, it outputs "Please enter valid response"
-//Issue: 1 = Fixed
-function game(){
-    do {
-        console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-        playRounds();    
-    } while (userScore<5 && (cpuScore<5));      //working as intended.
-    console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result
-}
-game();
+    document.getElementById('slime-text-small').innerHTML+='macchina per la melma';
 
-//Issue: 2 
-//Logical issue: Doesn't really make sense to subtract scores when a player loses a round. Points should stay the same. 
-//Will get rid of the --'s .
-//Issue: 2 = Fixed
+    function generateComputerChoice() {
+        randomNumComputer = choices[Math.floor(Math.random()*choices.length)];
+        console.log('CPU: '+randomNumComputer);
+        computerChoice = randomNumComputer;
+        computerChoiceDisplay.innerHTML=computerChoice;    // here
+    }
 
-//Issue: 3
-//Was having trouble with ending the game when either CPU or USER got to 5 points.
-//changed to do while loop, used && and encapsulated (cpuScore<5) in brackets to fix.
-//Issue: 3 = Fixed
+    function getResult () {     //new hotness
+        switch(userChoice + computerChoice) {
+            case 'ScissorsPaper': 
+                rounds++;
+                userScore++;
+                resultDisplay.innerHTML = "<br>You win. Scissors beats Paper.";
+                break
+            case 'RockScissors':            
+                resultDisplay.innerHTML = "<br>You win. Rock beats Scissors";
+                rounds++;
+                userScore++;
+                break
+            case 'PaperRock':
+                resultDisplay.innerHTML = "<br>You win. Paper beats Rock.";
+                rounds++;
+                userScore++;
+                break
+            case 'PaperScissors':
+                resultDisplay.innerHTML = "<br>You Lose. Scissors beats Paper.";
+                rounds++;
+                cpuScore++;
+                break
+            case 'ScissorsRock':                
+                resultDisplay.innerHTML = "<br>You Lose. Rock beats Scissors";
+                rounds++;
+                cpuScore++;
+                break
+            case 'RockPaper':                
+                resultDisplay.innerHTML = "<br>You Lose. Paper beats Rock.";
+                rounds++;
+                cpuScore++;
+                break
+            case 'PaperPaper':
+            case 'ScissorsScissors':
+            case 'RockRock':                
+                resultDisplay.innerHTML = "<br>Tie.";
+                rounds++;
+                break
+        }
+    }
+
+    possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+        if (rounds>=6) {
+            return  //this causes the buttons to do nothing except enlarge on hover
+        }
+        else {
+            userChoice = e.target.id;
+            userChoiceDisplay.innerHTML = userChoice;    // here
+            generateComputerChoice();
+            roundsCheck();
+        }
+    }))
+
+    function roundsCheck () {
+        if (rounds<6) {
+            roundDisplay.innerHTML = rounds;
+            getResult();
+            userScoreDisplay.innerHTML = userScore;
+            computerScoreDisplay.innerHTML = cpuScore;
+        }
+        if (rounds===6) {
+        endGame();
+        }
+    }  
+
+    function endGame() {
+        endGameDisplay.style.textAlign='center';
+        if (userScore > cpuScore) {
+            endGameDisplay.style.border='2px solid black';
+            endGameDisplay.innerHTML+="<br>Congrats You beat the Computer!"
+        }
+        else if (userScore < cpuScore) {
+            endGameDisplay.style.border='2px solid black';
+            endGameDisplay.innerHTML+="<br>Oof, nice try but you lost!"
+        }
+        else if (userScore === cpuScore) {
+            endGameDisplay.style.border='2px solid black';
+            endGameDisplay.innerHTML+="<br>Wow a draw! You gotta do a rematch!"
+        }
+        endGameDisplay.innerHTML+="<br><br> -FINAL SCORE- <br>USER: "+userScore+" || CPU: "
+        +cpuScore;
+        endGameDisplay.style.display='block';
+        //- playagain -
+        playAgainDisplay.style.display='block';
+    }
+
+}
+window.onload = function(){
+    setUpEvents();
+};
+
+
 
 
 
