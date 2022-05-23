@@ -1,22 +1,5 @@
-// console.log("SlimeMachine\nBest of 5. \nBEGIN!");
-//Problem: Create a Rock Paper Scisssors game where you play against a CPU
-//Divide: 1
-//Simple if statement + an array. Capitalize function for visual clarity.
-//Divide: 2 
-//Change user and comp into a prompt for user input, and a random string generator respectively. 
-//Divide: 2.5
-//Make sure the equal signs are === because you are comparing the randomNumComputer to user.toLowerCase(). (Make sure all the syntax is gucci)
-//Divide: 3
-//(After testing previous) Implement max score (5) and number of rounds   
-//Divide: 4
-//Place inside functions
 function setUpEvents(){
-        
-    // const comp = 'Rock';
-    // let userSelection;
-    // let consoleLoseMsg;
-    // let consoleWinMsg;
-    // let tieChecker = false;
+
     let rounds = 1;
     let userScore = 0;
     let cpuScore = 0;
@@ -35,7 +18,9 @@ function setUpEvents(){
     const playAgainDisplay = document.getElementById('play-again');
 
     const choices = ['Rock', 'Paper', 'Scissors'];
-      
+    
+    document.getElementById('slime-text-small').innerHTML+='macchina per la melma';
+
     function generateComputerChoice() {
         randomNumComputer = choices[Math.floor(Math.random()*choices.length)];
         console.log('CPU: '+randomNumComputer);
@@ -91,7 +76,6 @@ function setUpEvents(){
         else {
             userChoice = e.target.id;
             userChoiceDisplay.innerHTML = userChoice;    // here
-            // roundDisplay;
             generateComputerChoice();
             roundsCheck();
         }
@@ -129,128 +113,6 @@ function setUpEvents(){
         //- playagain -
         playAgainDisplay.style.display='block';
     }
-
-    //  - OLD CODE -
-    // function capitalizeFirst(string) {
-    //     return string.charAt(0).toUpperCase() + string.slice(1);
-    // }
-    // function playRounds(){   //old and busted joint
-    //     // randomNumComputer=Rock;
-    //     consoleWinMsg = 'You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randomNumComputer);
-    //     consoleLoseMsg = 'You lose. '+capitalizeFirst(randomNumComputer)+' beats '+capitalizeFirst(userSelection);
-
-    //     function youWin(){
-    //         document.querySelector('.round-text').innerHTML="<br>~ Your Score: "+userScore+" || Computer Score: "+cpuScore+" ~";
-    //         document.querySelector('.result-text').innerHTML+="<br><br><br>Round: "+(rounds-1)+
-    //         "<br>CPU: "+capitalizeFirst(randomNumComputer)+" || USER: "+capitalizeFirst(userSelection)+
-    //         '<br>You win. '+capitalizeFirst(userSelection)+' beats '+capitalizeFirst(randomNumComputer);    
-    //     }
-    //     function youLose(){
-    //         document.querySelector('.round-text').innerHTML="<br>~ Your Score: "+userScore+" || Computer Score: "+cpuScore+" ~";
-    //         document.querySelector('.result-text').innerHTML+="<br><br><br>Round: "+(rounds-1)+
-    //         "<br>CPU: "+capitalizeFirst(randomNumComputer)+" || USER: "+capitalizeFirst(userSelection)+
-    //         '<br>You lose. '+capitalizeFirst(randomNumComputer)+' beats '+capitalizeFirst(userSelection);
-    //     }
-
-    //     if (randomNumComputer===userSelection) {
-    //         console.log("\nTie.");
-    //         //tie text
-    //         rounds++; 
-    //         document.querySelector('.result-text').innerHTML+="<br><br><br>Round: "+(rounds-1)+
-    //         "<br>CPU: "+capitalizeFirst(randomNumComputer)+" || USER: "+capitalizeFirst(userSelection)+
-    //         "<br>Tie.";
-    //     }
-    //     else if(userSelection===Rock && randomNumComputer===Paper) {
-    //         // console.log("You lose.\nPaper beats Rock.");
-    //         console.log(consoleLoseMsg);
-    //         //lose text
-    //         rounds++; 
-    //         cpuScore++;
-    //         youLose();
-    //     }
-    //     else if(userSelection===Rock && randomNumComputer===Scissors) {
-    //         // console.log("You Win. \nRock beats Scissors");
-    //         console.log(consoleWinMsg);
-    //         //win text
-    //         rounds++;           
-    //         userScore++;
-    //         youWin(); 
-    //     }
-    //     else if(userSelection===Paper && randomNumComputer===Rock) {
-    //         // console.log("You Win. \nPaper beats Rock");
-    //         console.log(consoleWinMsg);
-    //         //win text
-    //         rounds++;            
-    //         userScore++;
-    //         youWin();
-    //     }
-    //     else if(userSelection===Paper && randomNumComputer===Scissors) {
-    //         // console.log("You lose.\nScissors beats Paper.");
-    //         console.log(consoleLoseMsg);
-    //         //lose text
-    //         rounds++;
-    //         cpuScore++;
-    //         youLose();
-    //     }
-    //     else if(userSelection===Scissors && randomNumComputer===Rock){
-    //         // console.log("You lose.\nRock beats Scissors.");
-    //         console.log(consoleLoseMsg);
-    //         //lose text
-    //         rounds++;
-    //         cpuScore++;  
-    //         youLose();
-    //     }
-    //     else if(userSelection===Scissors && randomNumComputer===Paper){
-    //         // console.log("You Win. \nScissors beats Paper");
-    //         console.log(consoleWinMsg);
-    //         //win text
-    //         rounds++;          
-    //         userScore++;
-    //         youWin();
-    //     }
-    // }
-
-    // function game(){
-    //     if (userScore !== cpuScore) {
-    //         console.log("\n\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore);
-    //         document.querySelector('.final-text').innerHTML+="<br> -FINAL SCORE- <br>USER: "+userScore+" || CPU: "+cpuScore+
-    //         "<br><br><br>Thanks 4 playin!! ";
-
-    //         //final text 
-    //     }
-    //     else if (userScore === cpuScore){
-    //         document.querySelector('.final-text').innerHTML+="<br>TIEBREAKER! "
-    //     }
-    //     // do {
-    //     //     console.log("Round: "+(rounds)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-    //     //     playRounds();    
-    //     // } while (userScore<5 && (cpuScore<5));      //working as intended.
-    //     // console.log("RESULTS:\n\nROUNDS: "+(rounds-1)+"\n-FINAL SCORE- \nUSER: "+userScore+"\nCPU: "+cpuScore); //result 
-    // }
-    
-    // function roundCheck(){
-    //     if (rounds<6){
-    //         playRounds();
-    //         console.log("Round: "+(rounds-1)+"\nYour Score: "+userScore+"\nComputer Score: "+cpuScore);
-    //         //score text
-    //     }
-    //     if (rounds>=6){
-    //         game();
-    //     }
-    // }
-    //Issue: 1 
-    //Code works with any of the options RPS, but when the user input is capitalized, it outputs "Please enter valid response"
-    //Issue: 1 = Fixed
-
-    //Issue: 2 
-    //Logical issue: Doesn't really make sense to subtract scores when a player loses a round. Points should stay the same. 
-    //Will get rid of the --'s .
-    //Issue: 2 = Fixed
-
-    //Issue: 3
-    //Was having trouble with ending the game when either CPU or USER got to 5 points.
-    //changed to do while loop, used && and encapsulated (cpuScore<5) in brackets to fix.
-    //Issue: 3 = Fixed
 
 }
 window.onload = function(){
