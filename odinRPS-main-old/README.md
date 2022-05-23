@@ -1,2 +1,0 @@
-# odinRPS
-Rock Paper Scissors!
